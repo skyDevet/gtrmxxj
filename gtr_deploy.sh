@@ -14,21 +14,21 @@ cat > package.json << 'END'
     "start": "concurrently \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
-    "preact": "^10.19.3",
-    "express": "^4.18.2",
-    "cors": "^2.8.5",
-    "node-fetch": "^3.3.2",
-    "cheerio": "^1.0.0-rc.12",
-    "googleapis": "^140.0.0",
     "@supabase/supabase-js": "^2.45.0",
+    "cheerio": "^1.0.0-rc.12",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "googleapis": "^140.0.0",
     "jsonwebtoken": "^9.0.2",
-    "dotenv": "^16.4.5"
+    "node-fetch": "^3.3.2",
+    "preact": "^10.19.3"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.8.0",
-    "vite": "^5.1.0",
-    "concurrently": "^8.2.2"
+    "@preact/preset-vite": "^2.10.6",
+    "concurrently": "^8.2.2",
+    "vite": "^8.3.4"
   }
 }
 END
@@ -672,6 +672,7 @@ cat > src/styles/app.css << 'END'
 :root {
   --bg: #ffffff;
   --card: #ffffff;
+  --bcard: #ffffff;
   --text: #1a1a1a;
   --text-sec: #6b6b6b;
   --border: #e5e5e5;
@@ -679,8 +680,14 @@ cat > src/styles/app.css << 'END'
   --shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 [data-theme="dark"] {
-  --bg: #121212; --card: #1e1e1e; --text: #f5f5f5;
-  --text-sec: #a0a0a0; --border: #333; --shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --bg:  linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+  --cardb: #1e1e1e;
+  --card:  linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+  --bcard:  rgba(255, 215, 0, 0.3);
+  --text: #f5f5f5;
+  --text-sec: #a0a0a0;
+  --border: #333;
+  --shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); -webkit-tap-highlight-color: transparent; }
@@ -1359,10 +1366,10 @@ export function Footer({ activeTab, onHome, onUpload, onProfile }) {
       <button
         onClick={onUpload} aria-label="Add pin"
         style={{
-          background: 'var(--primary)', color: 'white', border: '4px solid var(--card)',
+          background: 'var(--primary)', color: 'white', border: '4px solid var(--bcard)',
           borderRadius: '50%', width: '64px', height: '64px', fontSize: '26px',
           display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-          marginTop: '-34px', boxShadow: '0 4px 12px rgba(0,0,0,0.25)', flexShrink: 0
+          marginTop: '-34px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)', flexShrink: 0
         }}
       ><i class="fas fa-plus" /></button>
       <button style={iconStyle('profile')} onClick={onProfile} aria-label="Profile"><i class="fas fa-user" /></button>
@@ -1389,7 +1396,7 @@ export function Header({
       }}>
         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={onReset}>
           <img
-            src="/Img/InShot_20260907_212634930.png"
+            src="Img/logo.png"
             alt="Logo"
             style={{ width: '24px', height: '24px', objectFit: 'contain' }}
           />

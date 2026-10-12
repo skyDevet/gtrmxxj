@@ -15,10 +15,10 @@ export function Footer({ activeTab, onHome, onUpload, onProfile }) {
       <button
         onClick={onUpload} aria-label="Add pin"
         style={{
-          background: 'var(--primary)', color: 'white', border: '4px solid var(--card)',
+          background: 'var(--primary)', color: 'white', border: '4px solid var(--bcard)',
           borderRadius: '50%', width: '64px', height: '64px', fontSize: '26px',
           display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-          marginTop: '-34px', boxShadow: '0 4px 12px rgba(0,0,0,0.25)', flexShrink: 0
+          marginTop: '-34px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)', flexShrink: 0
         }}
       ><i class="fas fa-plus" /></button>
       <button style={iconStyle('profile')} onClick={onProfile} aria-label="Profile"><i class="fas fa-user" /></button>

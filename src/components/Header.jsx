@@ -16,7 +16,7 @@ export function Header({
       }}>
         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={onReset}>
           <img
-            src="/Img/InShot_20260907_212634930.png"
+            src="Img/logo.png"
             alt="Logo"
             style={{ width: '24px', height: '24px', objectFit: 'contain' }}
           />
